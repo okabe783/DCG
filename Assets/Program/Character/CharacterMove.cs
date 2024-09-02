@@ -1,6 +1,6 @@
 using UnityEngine;
 
-//Characterを動かす
+/// <summary>Characterを動かす</summary>
 public class CharacterMove : MonoBehaviour
 {
     private Rigidbody _rb;
