@@ -6,7 +6,20 @@ public class RuntimeInitializer : MonoBehaviour
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void InitializeBeforeSceneLoad()
     {
-        var cardManager = Resources.Load("CardManager");
-        DontDestroyOnLoad(cardManager);
+        // ResourcesフォルダからCardManagerをロード
+        var cardManagerPrefab = Resources.Load<GameObject>("CardManager");
+        
+        if (cardManagerPrefab != null)
+        {
+            // CardManagerをシーンにインスタンス化
+            var cardManagerInstance = Object.Instantiate(cardManagerPrefab);
+            
+            // インスタンス化されたオブジェクトをシーン切り替えで破棄しないように設定
+            DontDestroyOnLoad(cardManagerInstance);
+        }
+        else
+        {
+            Debug.LogError("CardManagerがResourcesフォルダ内に見つかりませんでした");
+        }
     }
 }

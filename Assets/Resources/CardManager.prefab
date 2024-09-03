@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9080747428930006571}
   - component: {fileID: 8470498140523360917}
+  - component: {fileID: 7064160166644292267}
   m_Layer: 0
   m_Name: CardManager
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2926256044893474303}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.2972088, y: 1.7548885, z: 3.0476618}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44,7 +45,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a55b63219dd51f4b91ac1afb9736119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardData:
+  _masterCardList: {fileID: 7064160166644292267}
+  _card: {fileID: 4655921786274637255, guid: 3722283ef06eee245ade7654de44ce38, type: 3}
+  _firsthand: 3
+--- !u!114 &7064160166644292267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2926256044893474303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdad229d2b84792458723504a8290f7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardDataBaseList:
   - {fileID: 11400000, guid: 9f413750fdfb2da4abe47b88955adfe0, type: 2}
   - {fileID: 11400000, guid: c22cf4dad3f2ede4ca57126f2d940e47, type: 2}
   - {fileID: 11400000, guid: 47e28f4cd35508e4ab8cc05597c07136, type: 2}

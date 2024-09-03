@@ -4,18 +4,22 @@ using UnityEngine.UI;
 /// <summary>Cardにアタッチ</summary>
 public class Card : MonoBehaviour
 {
-   #region カードの情報
+    public int CardID { get; private set; }
 
-   public int CardID;
-   public string Name;
-   public int Cost;
-   public int Atk;
-   public Sprite Icon;
+   [SerializeField, Header("名前のtext")]　private Text _nameText;
+   [SerializeField, Header("コストText")] private Text _costText;
+   [SerializeField, Header("アイコン")]　private Image _icon;
 
-   #endregion
-   
-   private void Start()
+   //Cardをセット
+   public void SetID(int id)
    {
-      //ToDo:CardIDからView情報を取得する
+      CardID = id;
+      Debug.Log(CardID);
+      Debug.Log($"名前は{MasterCardList.Instance.CardDataBaseList[CardID].Name}");
+      Debug.Log($"コストは{MasterCardList.Instance.CardDataBaseList[CardID].Cost}");
+      
+      _nameText.text = MasterCardList.Instance.CardDataBaseList[CardID].Name;
+      _costText.text = MasterCardList.Instance.CardDataBaseList[CardID].Cost.ToString();
+      _icon.sprite = MasterCardList.Instance.CardDataBaseList[CardID].Icon;
    }
 }

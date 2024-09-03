@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09dbb2f0b056cb2439c81b5f6df75371, type: 3}
   m_Name: Card4
   m_EditorClassIdentifier: 
+  _cardID: 3
   _name: "\u80A5\u6CBC"
   _icon: {fileID: 0}
   _cost: 4

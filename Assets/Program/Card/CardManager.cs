@@ -4,23 +4,21 @@ using UnityEngine;
 /// <summary>Cardの情報を管理</summary>
 public class CardManager : SingletonMonoBehaviour<CardManager>
 {
-   [SerializeField,Header("カードの情報")] private List<CardDataBase> _cardData;
+   [SerializeField, Header("全てのカードリスト")] private MasterCardList _masterCardList;
    [SerializeField, Header("Card")]　private Card _card;
    [SerializeField, Header("初期手札")] private int _firsthand;
 
    private List<Card> _hand = new();
    
    //ゲーム開始時にカードを3枚配る
-   public void FirstHand(GameObject hand)
+   public void FirstHand(PlayerHand hand)
    {
-      var randomCardId = Random.Range(0, _cardData.Count);
-      for (int i = 0; i < _firsthand; i++)
-      {
+      var random = Random.Range(0, _masterCardList.CardDataBaseList.Count);
          //カードを生成してhandの子オブジェクトにしてCardIdを渡す
-         var addCard = Instantiate(_card, hand.transform.parent);
-         addCard.CardID = randomCardId;
+         var addCard = Instantiate(_card, hand.transform);
+         //カードにIDを渡す
+         addCard.SetID(random);
          //手札にカードを追加
          _hand.Add(addCard);
-      }
    }
 }
